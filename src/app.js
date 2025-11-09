@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
+import usersRoutes from "./routes/users.js";
 import { sequelize } from "../db.js";
 
 dotenv.config();
@@ -13,6 +14,8 @@ app.use(express.json());
 
 // Mount routes
 app.use("/api/auth", authRoutes);
+// Users CRUD (self + admin)
+app.use("/api/users", usersRoutes);
 
 // Basic health
 app.get("/", (req, res) => res.json({ ok: true }));
