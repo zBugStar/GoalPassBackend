@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
 import usersRoutes from "./routes/users.js";
+import teamsRoutes from "./routes/teams.js";
 import { sequelize } from "../db.js";
 
 dotenv.config();
@@ -16,6 +17,8 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 // Users CRUD (self + admin)
 app.use("/api/users", usersRoutes);
+// Teams CRUD (public read, admin-only create/update/delete)
+app.use("/api/teams", teamsRoutes);
 
 // Basic health
 app.get("/", (req, res) => res.json({ ok: true }));
