@@ -30,6 +30,7 @@ app.get("/", (req, res) => res.json({ ok: true }));
 const testDbConnection = async () => {
 	try {
 		await sequelize.authenticate();
+		// await User.sync({ alter: true });
 		console.log("Database connected");
 	} catch (err) {
 		console.error("Unable to connect to DB:", err);
