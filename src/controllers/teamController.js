@@ -1,6 +1,6 @@
 import { Team } from "../models/team.js";
 
-// Create a team (admin only)
+// Crear equipo (admin)
 export const createTeam = async (req, res) => {
   try {
     const { name, city, stadium, image_url } = req.body;
@@ -14,7 +14,7 @@ export const createTeam = async (req, res) => {
   }
 };
 
-// Public: list teams
+// Publico: listar equipos
 export const getTeams = async (req, res) => {
   try {
     const teams = await Team.findAll();
@@ -25,7 +25,7 @@ export const getTeams = async (req, res) => {
   }
 };
 
-// Public: get team by id
+// Publico: obtener equipo por id
 export const getTeamById = async (req, res) => {
   try {
     const team = await Team.findByPk(req.params.id);
@@ -37,7 +37,7 @@ export const getTeamById = async (req, res) => {
   }
 };
 
-// Update team (admin only)
+// Actualizar equipo (solo admin)
 export const updateTeam = async (req, res) => {
   try {
     const team = await Team.findByPk(req.params.id);
@@ -57,7 +57,7 @@ export const updateTeam = async (req, res) => {
   }
 };
 
-// Delete team (admin only)
+// Eliminar equipo (solo admin)
 export const deleteTeam = async (req, res) => {
   try {
     const team = await Team.findByPk(req.params.id);

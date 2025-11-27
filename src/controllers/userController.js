@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { User } from "../models/user.js";
 
-// Helper to remove sensitive fields
+// Ayudante para eliminar campos sensibles
 const sanitize = (user) => {
   if (!user) return null;
   const u = { ...user.dataValues };
@@ -20,6 +20,7 @@ export const getMe = async (req, res) => {
   }
 };
 
+// Actualizar mis datos
 export const updateMe = async (req, res) => {
   try {
     const user = await User.findByPk(req.user.id);
@@ -44,6 +45,7 @@ export const updateMe = async (req, res) => {
   }
 };
 
+// Eliminar mi usuario
 export const deleteMe = async (req, res) => {
   try {
     const user = await User.findByPk(req.user.id);
@@ -56,7 +58,7 @@ export const deleteMe = async (req, res) => {
   }
 };
 
-// Admin actions
+// Acciones de administrador
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll({ attributes: { exclude: ["password"] } });

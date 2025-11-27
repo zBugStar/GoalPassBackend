@@ -46,7 +46,7 @@ export const Match = sequelize.define(
   }
 );
 
-// Associations (optional helper)
+// Asoociaciones
 Match.belongsTo(Team, { as: "local", foreignKey: "id_team_local" });
 Match.belongsTo(Team, { as: "visitor", foreignKey: "id_team_visitor" });
 

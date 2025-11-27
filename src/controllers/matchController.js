@@ -55,7 +55,7 @@ export const updateMatch = async (req, res) => {
       return res.status(400).json({ message: "Local and visitor teams must be different" });
     if (state && !VALID_STATES.includes(state)) return res.status(400).json({ message: "Invalid state" });
 
-    // If changing teams, ensure they exist
+    // Si se cambian los equipos, asegurar que existen
     if (id_team_local) {
       const local = await Team.findByPk(id_team_local);
       if (!local) return res.status(400).json({ message: "Local team not found" });

@@ -5,11 +5,11 @@ import { authenticate, authorizeRoles } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-// Public endpoints
+// Endpoint públicos
 router.get("/", teamController.getTeams);
 router.get("/:id", teamController.getTeamById);
 
-// Admin-only endpoints
+// Endpoint de administrador
 router.post(
   "/",
   authenticate,

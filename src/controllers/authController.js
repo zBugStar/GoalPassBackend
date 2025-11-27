@@ -99,4 +99,31 @@ export const login = async (req, res) => {
 	}
 };
 
+// Crear logout si es necesario (fronted)
+
+// export const verifyToken = async (req, res) => {
+//   const { token } = req.cookies;
+//   if (!token) return res.status(401).json({ message: "Unauthorized" });
+//   jwt.verify(token, TOKEN_SECRET, async (err, user) => {
+//     if (err) return res.status(401).json({ message: "Unauthorized" });
+//     const [userFound] = await sequelize.query(
+//       `
+//       SELECT *
+//       FROM users
+//       WHERE id = :id
+//       `,
+//       {
+//         replacements: { id: user.id },
+//         type: QueryTypes.SELECT,
+//       }
+//     );
+//     if (!userFound) return res.status(401).json({ message: "Unauthorized" });
+
+//     return res.status(200).json({
+//       message: "User found",
+//       response: userFound,
+//     });
+//   });
+// };
+
 export default { register, login };

@@ -5,7 +5,7 @@ import { authenticate, authorizeRoles } from "../middlewares/auth.js";
 
 const router = express.Router();
 
-// User self endpoints
+// Endpoints usuario
 router.get("/me", authenticate, userController.getMe);
 
 router.put(
@@ -17,7 +17,7 @@ router.put(
 
 router.delete("/me", authenticate, userController.deleteMe);
 
-// Admin endpoints
+// Endpoints de administrador
 router.get("/", authenticate, authorizeRoles("administrador"), userController.getAllUsers);
 router.get("/:id", authenticate, authorizeRoles("administrador"), userController.getUserById);
 
